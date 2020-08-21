@@ -1,0 +1,12 @@
+//ERROR
+export const GET_ERRORS = 'GET_ERRORS';
+export const CLEAR_ERRORS = 'CLEAR_ERRORS';
+//AUTH USER
+export const GET_CREDIENTIAL = 'GET_CREDIENTIAL';
+//SIGN UP USER
+export const SET_USER_SIGN_UP = 'SET_USER_SIGN_UP';
+// POST
+export const GET_POSTS_LIST = 'GET_POSTS_LIST';
+export const CREATE_POST = 'CREATE_POST';
+//PROFILE
+export const GET_PROFILE = 'GET_PROFILE';
