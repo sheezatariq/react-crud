@@ -1,6 +1,4 @@
-//ERROR
-export const GET_ERRORS = 'GET_ERRORS';
-export const CLEAR_ERRORS = 'CLEAR_ERRORS';
+
 //AUTH USER
 export const GET_CREDIENTIAL = 'GET_CREDIENTIAL';
 //SIGN UP USER
