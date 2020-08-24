@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route,Switch,  withRouter } from 'react-router-dom';
+import { Route, Switch, withRouter } from 'react-router-dom';
 import Post from '../post/Post';
 import CreateEditPost from '../post/CreateEditPost';
 import CreateProfile from '../profile/CreateProfile'

@@ -87,11 +87,6 @@ const Login = ({ login }) => {
           handleChange={handleChange}
           className="userName"
         />
-         <div className="input-group-append showHidePassword" data-status="off">
-                <span className="input-group-text">
-                  <i className="fas fa-eye-slash" />
-                </span>
-              </div>
         <Button
           label="Login"
           handleSubmit={handleSubmit}

@@ -1,5 +1,4 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 
 const SideBar = () => {
@@ -25,8 +24,4 @@ const SideBar = () => {
   );
 };
 
-const mapStateToProps = state => ({
-  error: state.error,
-});
-
-export default connect(mapStateToProps, null)(SideBar);
+export default SideBar;

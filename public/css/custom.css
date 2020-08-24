@@ -158,12 +158,12 @@ input:focus {
 
 /* FOOTER  */
 
-.footer {
+/* .footer {
   display: flex;
   width: 100%;
   margin-left: 75%;
   margin-top: 20px;
-}
+} */
 
 .errorClass {
 	width: 100%;
@@ -178,10 +178,10 @@ input:focus {
 
 /* SUCCESS STATUS */
 
-.successMessage {
+/* .successMessage {
   color: rgb(40, 156, 25);
   float: left;
-}
+} */
 
 /* DASHBOARD */
 
@@ -294,11 +294,11 @@ input:focus {
 }
 
 .wrapper .link {
-  /* color: #fff; */
-  cursor: pointer;
+  color: #fff;
+   cursor: pointer;
   color: var(--btnColor);
   text-decoration: none;
-}
+} 
 
 a.nav-link {
 	white-space: nowrap;
@@ -361,21 +361,9 @@ a.nav-link {
   /* float: left; */
 }
 
-/* FOR DATE PICKER */
-
-.datePicker {
-  width: 257px;
-  border: 1px solid var(--inputColor);
-  font-size: 15px;
-  height:40px;
-  font-family: 10px;
-  border-radius: 3px;
-  margin-bottom: 15px;
-  text-align: left;
-}
-.lesson-modal {
+/* .lesson-modal {
   height: 100px;
-}
+} */
 .disabled, :disabled {
   pointer-events: none;
   background: #cccaca;
@@ -393,16 +381,5 @@ a.nav-link {
   font-family: 10px;
   outline: none;
 }
-.buttonTeacher {
-  background: var(--btnColor);
-	border: 0px;
-	width: 20%;
-	padding: 10px;
-  color: #fff;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 16px;
-  font-family: 10px;
-  outline: none;
-}
+
 
