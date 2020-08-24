@@ -50,7 +50,13 @@ const CreateEditPost = ({ history, createPost, post: { create_post } }) => {
       createPost(userData, history);
     };
     setError(errors || {});
-  }
+  };
+
+  const handleCancel = (e) => {
+    setFormData({
+      text: ''
+    });
+  };
 
   return (
     <Card.Body>
@@ -81,6 +87,7 @@ const CreateEditPost = ({ history, createPost, post: { create_post } }) => {
         <Button
           label="Cancel"
           className="button ml-1"
+          handleSubmit={handleCancel}
         />
       </div>
     </Card.Body>

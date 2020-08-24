@@ -56,7 +56,15 @@ const CreateProfile = ({ history, createProfile, }) => {
       createProfile(userData, history);
     };
     setError(errors || {});
-  }
+  };
+
+  const handleCancel = (e) => {
+    setFormData({
+      text: '',
+      skills: '',
+      status: ''
+    });
+  };
 
   toast.configure({
     position: "top-center",
@@ -112,6 +120,7 @@ const CreateProfile = ({ history, createProfile, }) => {
         <Button
           label="Cancel"
           className="button ml-1"
+          handleSubmit={handleCancel}
         />
       </div>
     </Card.Body>

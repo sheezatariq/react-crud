@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import Button from '../../common/Button';
 import SideBar from './SideBar';
 import DashboardRoutes from './DashboardRoutes';
-import assets from '../../assests/training image.jpg';
 
 const Dashboard = ({ history }) => {
   
@@ -11,6 +10,7 @@ const Dashboard = ({ history }) => {
     localStorage.clear();
     history.push('/login')
   }
+  
   return (
     <>
       <React.Fragment>
@@ -18,7 +18,7 @@ const Dashboard = ({ history }) => {
           <div className="head">
             <div className="row">
               <div className="col-sm-6 brandName">
-                <img src={assets} className="logo" alt="" width="70" height="50" />
+                <img src="/assets/img/training.jpg" className="logo" alt="" width="70" height="50" />
                 <strong className="ml-3 roleColor">SkillUp</strong>
               </div>
               <div className="col-sm-6 text-right">
