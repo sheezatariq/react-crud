@@ -80,19 +80,19 @@ const Post = ({ history, post: { get_post}, getPost, deletePost }) => {
   },[getPost, get_post,  data, history, columns, firstShown, firstDataShown ])
   
   const dragFuncHandler = e => {
-    const data = { id: e.target.id, Y: e.clientY };
-    e.dataTransfer.setData('text/JSON', JSON.stringify(data));
+    const dragData = { id: e.target.id, Ver: e.clientVer };
+    e.dataTransfer.setData('text/JSON', JSON.stringify(dragData));
     e.target.parentElement.id = 'Parent'
   }
   const dropHandler = e => {
-    const data = JSON.parse(e.dataTransfer.getData('text/JSON'))
-    const { id, Y } = data;
+    const dropData = JSON.parse(e.dataTransfer.getData('text/JSON'))
+    const { id, Ver } = dropData;
     const draggedElement = document.getElementById(id);
     const targetElement = e.target.parentElement
     if (!draggedElement || !targetElement) return;
     const parentElement = targetElement.parentNode;
     if (!parentElement || parentElement.id !== 'Parent') return;
-    if (Y > e.clientY) { parentElement.insertBefore(draggedElement, targetElement) }
+    if (Ver > e.clientVer) { parentElement.insertBefore(draggedElement, targetElement) }
     else parentElement.insertBefore(draggedElement, targetElement.nextSibling)
   }
   useEffect(() => {
