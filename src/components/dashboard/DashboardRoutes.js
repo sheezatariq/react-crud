@@ -5,7 +5,7 @@ import CreateEditPost from '../post/CreateEditPost';
 import CreateProfile from '../profile/CreateProfile';
 import CalculatorSample from '../calculator3/CalculatorSample';
 import Map from '../../google/Map';
-import WebcamCapture from '../webimage/WebCam';
+import WebcamCapture from '../webimage/WebcamCapture';
 
 
 

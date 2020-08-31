@@ -78,7 +78,7 @@ export default function Map() {
               setSelected(null);
             }}>
             <div>
-              <h2>Bear Spotted!</h2>
+              <h2>Location Spotted!</h2>
               <p>Spotted {formatRelative(selected.time,new Date())}</p>
             </div>
           </InfoWindow>
