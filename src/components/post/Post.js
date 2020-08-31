@@ -79,10 +79,10 @@ const Post = ({ history, post: { get_post}, getPost, deletePost }) => {
 
   const onDragEnd = {
     onDragEnd(fromIndex, toIndex) {
-      const tableData = [...data.rows];
-      const item = tableData.splice(fromIndex, 1)[0];
-      tableData.splice(toIndex, 0, item);
-      setData({...data,rows : tableData})
+      const rowData = [...data.rows];
+      const item = rowData.splice(fromIndex, 1)[0];
+      rowData.splice(toIndex, 0, item);
+      setData({...data,rows : rowData})
     },
     nodeSelector: 'tr',
     handleSelector: 'tr'
