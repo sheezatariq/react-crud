@@ -6,26 +6,21 @@ import { getPost, deletePost } from '../../actions/postActions';
 import ConfirmModal from '../../common/ConfirmModal';
 import ActionsDropDown from '../../common/ActionsDropDown';
 import ReactDataTable from 'react-data-table-component';
+import ReactDragListView from 'react-drag-listview/lib/index.js';
+import { MDBDataTable } from 'mdbreact';
+import '@fortawesome/fontawesome-free/css/all.min.css';
+import 'bootstrap-css-only/css/bootstrap.min.css';
+import 'mdbreact/dist/css/mdb.css';
 
 const Post = ({ history, post: { get_post}, getPost, deletePost }) => {
 
   const columns = [
-    {
-      name: 'POST ID',selector: '_id',sortable: true,
-    },
-    {
-      name: 'POST TEXT', selector: 'text', wrap: true, sortable: true,
-    },
-    {
-      name: 'USER ID', selector: 'user', wrap: true,  sortable: true,
-    },
-    {
-      name: 'DATE', selector: 'date', wrap: true, sortable: true,
-    },
-    {
-      name: 'ACTIONS', button: true, cell: (post) => <ActionsDropDown handleDelete={() => handleDelete(post?._id)} /> 
-                                                    
-    },
+
+    { label: 'Post Id', field: '_id', sort: 'asc' },
+    { label: 'Post Text', field: 'text', sort: 'asc' },
+    { label: 'User Id', field: 'user', sort: 'asc' },
+    { label: 'Date', field: 'date', sort: 'asc' },
+    { label: 'Actions', field: 'actions' },
   ];
 
   const [data, setData] = useState({
@@ -72,41 +67,27 @@ const Post = ({ history, post: { get_post}, getPost, deletePost }) => {
         columns: columns,
         rows: get_post.map(post => {
           return{ ...post,
+              actions: <ActionsDropDown
+                        handleDelete={() => handleDelete(post?._id)}
+                      />
           };
         })
       });
       setFirstDataShown();
     };
-  },[getPost, get_post,  data, history, columns, firstShown, firstDataShown ])
-  
-  const dragFuncHandler = e => {
-    const dragData = { id: e.target.id, Ver: e.clientVer };
-    e.dataTransfer.setData('text/JSON', JSON.stringify(dragData));
-    e.target.parentElement.id = 'Parent'
-  }
-  const dropHandler = e => {
-    const dropData = JSON.parse(e.dataTransfer.getData('text/JSON'))
-    const { id, Ver } = dropData;
-    const draggedElement = document.getElementById(id);
-    const targetElement = e.target.parentElement
-    if (!draggedElement || !targetElement) return;
-    const parentElement = targetElement.parentNode;
-    if (!parentElement || parentElement.id !== 'Parent') return;
-    if (Ver > e.clientVer) { parentElement.insertBefore(draggedElement, targetElement) }
-    else parentElement.insertBefore(draggedElement, targetElement.nextSibling)
-  }
-  useEffect(() => {
-    const dataRow = document.getElementsByClassName('doBktq');
-    for (let row of dataRow) {
-      row.draggable = true;
-    }
-  })
-  useEffect(() => {
-    document.addEventListener('dragstart', dragFuncHandler)
-    document.addEventListener("dragover", e => e.preventDefault())
-    document.addEventListener('drop', dropHandler)
-  }, [])
+  },[getPost, get_post,  data, history, columns, firstShown, firstDataShown ]);
 
+  const onDragEnd = {
+    onDragEnd(fromIndex, toIndex) {
+      const tableData = [...data.rows];
+      const item = tableData.splice(fromIndex, 1)[0];
+      tableData.splice(toIndex, 0, item);
+      setData({...data,rows : tableData})
+    },
+    nodeSelector: 'tr',
+    handleSelector: 'tr'
+  };
+  
   return (
     <>
       <Card.Body>
@@ -117,13 +98,14 @@ const Post = ({ history, post: { get_post}, getPost, deletePost }) => {
             handleSubmit= {() => history.push("/dashboard/post/create")}
           />
         </Row>
-        <ReactDataTable
-          title="ALL POSTS LIST"
-          columns={columns}
-          data={get_post}
-          pagination
-          paginationRowsPerPageOptions={[5, 10, 15, 20,]}
-        />
+        <ReactDragListView {...onDragEnd}>
+          <MDBDataTable
+            striped
+            bordered
+            small
+            data={data}
+          />
+        </ReactDragListView>
         <ConfirmModal
           messageString={modalMessage}
           show={modalShow}

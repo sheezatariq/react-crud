@@ -5,7 +5,6 @@ import { toast } from "react-toastify";
 export const createProfile = (userData) => (dispatch) => {
   const Token = localStorage.getItem("token");
   const token = JSON.parse(Token);
-  console.log("token", token);
   const PROFILE_URL = BASE_URL + "/profile"
   axios
     .post(PROFILE_URL,userData, {
