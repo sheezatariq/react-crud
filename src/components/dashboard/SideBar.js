@@ -10,15 +10,32 @@ const SideBar = () => {
           <strong> Dashboard </strong>
         </NavLink>
 
+        <NavLink to="/dashboard/post" className="nav-link link" data-page-name="summery">
+          <img src="/assets/img/post.png" alt="" width="20" className="mr-1" />
+          <strong> Post </strong>
+        </NavLink>
+
+        <NavLink to="/dashboard/google_map" className="nav-link link" data-page-name="summery" >
+          <img src="/assets/img/google-map.jpeg" alt="" width="20" className="mr-1" />
+          <strong> Map </strong>
+        </NavLink>
+
+        <NavLink to="/dashboard/calculator" className="nav-link link" data-page-name="summery" >
+          <img src="/assets/img/calculator.png" alt="" width="20" className="mr-1" />
+          <strong> Calculator </strong>
+        </NavLink>
+
         <NavLink to="/dashboard/profile" className="nav-link link" data-page-name="summery" >
           <img src="/assets/img/profile.png" alt="" width="20" className="mr-1" />
           <strong> Profile </strong>
         </NavLink>
-        
-        <NavLink to="/dashboard/post" className="nav-link link">
-          <img src="/assets/img/post.png" alt="" width="20" className="mr-1" />
-          <strong> Post </strong>
+
+        <NavLink to="/dashboard/camera" className="nav-link link" data-page-name="summery">
+          <img src="/assets/img/camera.png" alt="" width="20" className="mr-1" />
+          <strong> Image </strong>
         </NavLink>
+        
+        
       </div>
     </>
   );
